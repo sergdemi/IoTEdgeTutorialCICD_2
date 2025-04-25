@@ -43,20 +43,20 @@ stages:
       displayName: 'Command Line Script'
     - task: AzureIoTEdge@2
       inputs:
-        action: 'Generate deployment manifest'
-        templateFilePath: 'deployment.template.json'
-        defaultPlatform: 'amd64'
-        deploymentManifestsOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
-        validateGeneratedDeploymentManifest: 'true'
-      displayName: 'Generate Deployment manifest'
+          action: 'Generate deployment manifest'
+          templateFilePath: 'deployment.template.json'
+          defaultPlatform: 'amd64'
+          deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
+          validateGeneratedDeploymentManifest: 'false'
+          
     - task: AzureIoTEdge@2
       inputs:
         action: 'Deploy to IoT Edge devices'
         deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
-        azureSubscription: 'Suscripción de Visual Studio Profesional (e00db121-05ba-4283-97d3-4274...)'
-        iothubname: 'myIoTHubTutorialfree'
+        azureSubscription: 'Azure for Students(c434ed32-4c6a-4d5c-919d-0000bfb1f470)'
+        iothubname: 'myIoTHubTutorialSergio'
         deploymentId: '$(System.TeamProject)-devops-deployment'
         priority: '0'
         deviceOption: 'Single Device'
-        deviceId: 'EDIoT2024Identity20'
-      displayName: 'Deploy to IoT Edge devices'
+        deviceId: 'edgedeviceidentity3serg'
+      displayName: 'Deploy to IoT Edge devices'      
