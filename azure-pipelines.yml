@@ -49,14 +49,16 @@ stages:
           deploymentManifestOutputPath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
           validateGeneratedDeploymentManifest: 'false'
           
+          
     - task: AzureIoTEdge@2
       inputs:
         action: 'Deploy to IoT Edge devices'
         deploymentFilePath: '$(System.DefaultWorkingDirectory)/config/deployment.json'
-        azureSubscription: 'Azure for Students(c434ed32-4c6a-4d5c-919d-0000bfb1f470)'
+        azureSubscription: 'serviceConnectionTeam6'
         iothubname: 'IoTHubT6'
         deploymentId: '$(System.TeamProject)-devops-deployment'
         priority: '0'
         deviceOption: 'Single Device'
         deviceId: 'AirQuality'
       displayName: 'Deploy to IoT Edge devices'      
+      
